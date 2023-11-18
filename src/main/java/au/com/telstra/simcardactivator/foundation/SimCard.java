@@ -1,5 +1,6 @@
 package au.com.telstra.simcardactivator.foundation;
 
+import au.com.telstra.simcardactivator.record.SimCardRecord;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
@@ -14,6 +15,12 @@ public class SimCard {
         this.iccid = iccid;
         this.customerEmail = customerEmail;
         this.activeStatus = activeStatus;
+    }
+
+    public SimCard(SimCardRecord simCardRecord) {
+        this.iccid = simCardRecord.getIccid();
+        this.customerEmail = simCardRecord.getCustomerEmail();
+        this.activeStatus = simCardRecord.getStatus();
     }
 
     public String getIccid() {
